@@ -592,3 +592,113 @@ textarea.form-control {
       padding: 12px;
   }
 }
+
+/* slider start */
+    /* Slider Container */
+    .slider-container {
+      position: relative;
+      max-width: 800px;
+      width: var(--slider-width);
+      height: var(--slider-height);
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Slides */
+  .slider {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease-in-out;
+  }
+
+  .slide {
+      min-width: 100%;
+      height: 100%;
+  }
+
+  .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
+
+  /* Navigation Arrows */
+  .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: var(--arrow-size);
+      height: var(--arrow-size);
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--primary-color);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 10;
+      font-size: 20px;
+      font-weight: bold;
+      user-select: none;
+      transition: all 0.3s ease;
+  }
+
+  .arrow:hover {
+      background: rgba(255, 255, 255, 0.9);
+  }
+
+  .prev {
+      left: 20px;
+  }
+
+  .next {
+      right: 20px;
+  }
+
+  /* Dots Navigation */
+  .dots {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+  }
+
+  .dot {
+      width: var(--dot-size);
+      height: var(--dot-size);
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+  }
+
+  .dot.active {
+      background: var(--secondary-color);
+      transform: scale(1.2);
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+      :root {
+          --slider-height: 350px;
+          --arrow-size: 35px;
+      }
+  }
+
+  @media (max-width: 576px) {
+      :root {
+          --slider-height: 250px;
+          --arrow-size: 30px;
+          --dot-size: 10px;
+      }
+      
+      .arrow {
+          font-size: 16px;
+      }
+  }
+/* slider end */
