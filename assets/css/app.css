@@ -222,3 +222,8 @@
     .roadmap-languages { display: none; }
     .roadmap-languages.active { display: block; }
 /* end for roadmap */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block; /* Optional: Removes extra space below images */
+}
