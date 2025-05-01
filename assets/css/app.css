@@ -100,3 +100,39 @@
                 width: 100%;
             }
         }
+
+/* for roadmap  */
+    /* Basic styling (customize as needed) */
+    .roadmap {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .roadmap-category {
+      background: #f0f0f0;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .roadmap-category:hover {
+      background: #e0e0e0;
+    }
+    .roadmap-languages {
+      display: none;
+      padding: 10px 0 0 20px;
+    }
+    .roadmap-languages ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .roadmap-languages li {
+      padding: 8px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .active {
+      display: block;
+    }
+/* end for roadmap */
