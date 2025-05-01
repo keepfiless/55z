@@ -259,14 +259,6 @@ img {
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  color: var(--text-color);
-  padding: 20px;
-  background-color: var(--light-gray);
-}
-
 /* Product Grid */
 .products-container {
   display: grid;
@@ -380,13 +372,6 @@ body {
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  color: var(--text-color);
-  padding: 20px;
-  background-color: var(--light-gray);
-}
 
 /* Product Grid */
 .products-container {
@@ -500,13 +485,6 @@ body {
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  color: var(--text-color);
-  background-color: var(--light-gray);
-  padding: 20px;
-}
 
 /* Form Container */
 .form-container {
