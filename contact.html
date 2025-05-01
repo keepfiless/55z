@@ -5,6 +5,35 @@
     شما میتوانید از طریق فرم زیر درخواست خود را بنویسید و برای ما ارسال بکنید یا اینکه از شماره های تماس درج شده زیر فرم
     استفاده کنید
 </div>
-
+<div class="form-container">
+    <h1 class="form-title">Contact Us</h1>
+    
+    <!-- Status messages (hidden by default) -->
+    <div id="status-message" class="status-message"></div>
+    
+    <form id="contact-form">
+        <div class="form-group">
+            <label for="name" class="form-label">Full Name</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="subject" class="form-label">Subject</label>
+            <input type="text" id="subject" name="subject" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="message" class="form-label">Your Message</label>
+            <textarea id="message" name="message" class="form-control" required></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+</div>
 
     {% include footer.html %}
