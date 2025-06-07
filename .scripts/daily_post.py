@@ -1,32 +1,30 @@
 import os
+import requests
+from bs4 import BeautifulSoup
 from datetime import datetime
 
 POSTS_DIR = "_posts"
 TODAY = datetime.now().strftime("%Y-%m-%d")
 
+def scrape_virgool_content():
+    # ... (scraping code from above) ...
+
 def create_jekyll_post():
-    """Creates a new HTML post file"""
-    filename = f"{POSTS_DIR}/{TODAY}-auto-post.html"  # Changed to .html
+    filename = f"{POSTS_DIR}/{TODAY}-auto-post.html"
+    scraped_html = scrape_virgool_content()
     
-    # HTML content with Jekyll front matter
-    content = """---
+    content = f"""---
 layout: post
-title: "Daily Post {date}"
-date: {datetime}
+title: "Daily Post {TODAY}"
+date: {datetime.now().strftime("%Y-%m-%d %H:%M:%S %z")}
 categories: [daily]
 ---
 
-<p>This is an <strong>automated HTML post</strong>.</p>
-<!-- Your HTML content here -->
-""".format(
-        date=TODAY,
-        datetime=datetime.now().strftime("%Y-%m-%d %H:%M:%S %z")
-    )
-    
+{scraped_html}
+"""
     os.makedirs(POSTS_DIR, exist_ok=True)
     with open(filename, 'w', encoding='utf-8') as f:
         f.write(content)
-    print(f"Created HTML post: {filename}")
 
 if __name__ == "__main__":
     create_jekyll_post()
