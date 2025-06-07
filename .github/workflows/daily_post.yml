@@ -1,0 +1,36 @@
+name: Auto Daily Post
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs at midnight UTC daily
+  workflow_dispatch:  # Manual trigger option
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false  # Needed to push later
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4 pyyaml python-frontmatter
+
+      - name: Run post generator
+        run: python ./.scripts/daily_post.py
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions-bot@users.noreply.github.com"
+          git add _posts/
+          git diff --quiet && git diff --staged --quiet || git commit -m "Auto: New daily post [skip ci]"
+          git push
