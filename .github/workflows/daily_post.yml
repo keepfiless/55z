@@ -3,7 +3,7 @@ name: Auto Daily Post
 on:
   schedule:
     - cron: '0 0 * * *'  # Runs at midnight UTC daily
-  workflow_dispatch:  # Manual trigger option
+  workflow_dispatch:
 
 jobs:
   build:
@@ -13,7 +13,8 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          persist-credentials: false  # Needed to push later
+          token: ${{ secrets.GITHUB_TOKEN }}  # Add this line
+          persist-credentials: true  # Change from false to true
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -25,7 +26,7 @@ jobs:
           pip install requests beautifulsoup4 pyyaml python-frontmatter
 
       - name: Run post generator
-        run: python ./.scripts/daily_post.py
+        run: python .scripts/daily_post.py
 
       - name: Commit and push changes
         run: |
